@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJETO Eluiz gustavi feio</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #0000ff, #000000); /* Gradiente azul para preto */
+            color: #fff; /* Cor do texto branca */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            height: 100vh; /* Preenche a altura da tela */
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 20px;
+            font-size: 3em;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .tab-button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        .tab-button.active {
+            background: #0000ff;
+        }
+
+        .video-container {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .video-container.active {
+            display: block;
+        }
+
+        .video-container iframe {
+            width: 80%;
+            height: 450px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>PROJETO ENZO PRIMO FERREIRA</h1>
+    <div class="tabs">
+        <button class="tab-button active" data-tab="1">Vídeo 1</button>
+        <button class="tab-button" data-tab="2">Vídeo 2</button>
+        <button class="tab-button" data-tab="3">Vídeo 3</button>
+        <button class="tab-button" data-tab="4">Vídeo 4</button>
+        <button class="tab-button" data-tab="5">Vídeo 5</button>
+    </div>
+
+    <div class="video-container active" id="video-1">
+        <iframe src="https://www.youtube.com/watch?v=PWirijQkH4M" allowfullscreen></iframe>
+    </div>
+    <div class="video-container" id="video-2">
+        <iframe src="https://www.youtube.com/watch?v=h0HjktaeEpA" allowfullscreen></iframe>
+    </div>
+    <div class="video-container" id="video-3">
+        <iframe src="https://www.youtube.com/watch?v=mCcNv8vTE-I" allowfullscreen></iframe>
+    </div>
+    <div class="video-container" id="video-4">
+        <iframe src="https://www.youtube.com/watch?v=ZQpPFV__X9w" allowfullscreen></iframe>
+    </div>
+    <div class="video-container" id="video-5">
+        <iframe src="https://www.youtube.com/watch?v=Si346MH1OOU" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll('.tab-button');
+        const containers = document.querySelectorAll('.video-container');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabNumber = button.getAttribute('data-tab');
+                buttons.forEach(btn => btn.classList.remove('active'));
+                containers.forEach(container => container.classList.remove('active'));
+                
+                button.classList.add('active');
+                document.getElementById(`video-${tabNumber}`).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
